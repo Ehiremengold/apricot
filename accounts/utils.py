@@ -1,0 +1,1 @@
+# return redirect(self.request.GET.get('next'))

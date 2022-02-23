@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Transactions | apricot{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="left-side-bar">
+		<p><img src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-dashboard-ui-essential-kmg-design-flat-kmg-design.png"/> &nbsp;Dashboard</p>
+		<p>All systems are running smoothly! All transactions are authenticated before confirmation</p>
+	</div>
+
+	<div class="right-side-barr">
+		<img src="http://openweathermap.org/img/w/{{icon}}.png">
+		<h1 style="color: black">{{city}}</h1>
+		<p style="color: black">{{country}}</p>
+		<h5 style="color: black">{{temperature}}&deg;</h5>
+		<img class="transfer-img" src="{% static 'images/transaction.jpg' %}">
+	</div>
+
+	<div class="left-side-bar">
+	{% for transaction in all_transactions %}
+	<!-- <p>{{transaction.sender}}</p> -->
+	{% if transaction.sender == request.user %}
+	<p>you <span style="color:#add8e6">sent</span> <b>${{transaction.amount}}</b> to {{transaction.receiver.username}} {{transaction.timestamp | timesince}} ago. </p>
+	{% elif transaction.receiver == request.user %}
+	<p> you <span style="color:#4BB543">received</span> <b>${{transaction.amount}}</b> from {{transaction.sender.username}} {{transaction.timestamp | timesince}} ago.</p>
+	<p>you <span style="color:#add8e6">sent</span> <b>${{transaction.amount | floatformat:2}}</b> to {{transaction.receiver.username}} {{transaction.timestamp | timesince }} ago.</p>
+	{% elif transaction.receiver == request.user %}
+	<p> you <span style="color:#4BB543">received</span> <b>${{transaction.amount | floatformat:2}}</b> from {{transaction.sender.username}} {{transaction.timestamp | timesince }} ago.</p>
+	{% endif %}
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Dashbaord | apricot{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="left-side-bar">
+		<p><img src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-dashboard-ui-essential-kmg-design-flat-kmg-design.png"/> &nbsp;Dashboard</p>
+		<p>All systems are running smoothly! You have <span class="dashboard-message"><b>1 unread message</b></span></p>
+	</div>
+
+	<div class="right-side-bar">
+		<img src="http://openweathermap.org/img/w/{{icon}}.png">
+		<h1>{{city}}</h1>
+		<p>{{country}}</p>
+		<h5>{{temperature}}&deg;</h5>
+		<img class="img" src="{% static 'images/meditate.png' %}">
+	</div>
+	<div class="ending-side-bar">
+		<p>wallet balance:</p>
+		<h1>${{user_dashboard.wallet_balance}} </h1>
+			<script>
+				if({{user_dashboard.wallet_balance}} < 1){
+					alert('Insufficient Balance! Top Up?')
+				}
+			</script>
+		<div class="send-token"><a href="{% url 'transfer' %}"><b>Send</b></a></div>
+	</div>
+
+
+
+	<div class="ending-side-barr">
+		<img class="copy" src="{% static 'images/copy.png' %}">
+		<p>wallet tag:</p>
+		<h2>{{user_dashboard.wallet_tag}}</h2>
+	</div>
+
+	
+</div>
+
+
+{% endblock %}
+

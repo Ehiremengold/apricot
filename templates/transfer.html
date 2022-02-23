@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Send/Receive | apricot{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="left-side-bar">
+		<p><img src="https://img.icons8.com/external-kmg-design-flat-kmg-design/32/000000/external-dashboard-ui-essential-kmg-design-flat-kmg-design.png"/> &nbsp;Dashboard</p>
+		<p>All systems are running smoothly! All transactions are authenticated before confirmation</p>
+	</div>
+
+	<div class="right-side-barr">
+		<img src="http://openweathermap.org/img/w/{{icon}}.png">
+		<h1 style="color: black">{{city}}</h1>
+		<p style="color: black">{{country}}</p>
+		<h5 style="color: black">{{temperature}}&deg;</h5>
+		<img class="transfer-img" src="{% static 'images/send.jpg' %}">
+	</div>
+
+	<div class="transfer">
+			<div class="transfer-input">
+				<form action="{% url 'create_transaction' %}"method="POST">
+					{% csrf_token %}
+					<p>
+					wallet ballance:
+					${{user.dashboard.wallet_balance}}</p>
+					{% csrf_token %}
+					<input class="form-control" placeholder="enter wallet tag" name="receiver-wallet-tag" type="text">
+					<br>
+					<input class="form-control" placeholder="0.00" name="amount" type="number" step="0.01">
+					<button class="send-token" type="submit"><b>Send</b></button>
+				</form>
+			</div>
+		</div>
+</div>
+{% endblock %}
+

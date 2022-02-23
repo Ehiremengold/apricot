@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Create apricot account | apricot{% endblock %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	<label for="email">Email:</label>
+	<input type="text" name="email" placeholder="Email">
+
+	<br>
+	<label for="username">Username:</label>
+	<input type="text" name="username" placeholder="username"><br>
+	<br>
+
+	<br>
+	<label for="password">Password:</label>
+	<input type="password" name="password1" placeholder="password"><br>
+	<br>
+	<label for="password">Confirm Password:</label>
+	<input type="password" name="password2" placeholder="confirm password"><br>
+	<input class="lgn-btn" type="submit" value="Sign Up">
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Login | apricot{% endblock %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	<label for="email">Email:</label>
+	<input type="text" name="email" placeholder="Email">
+
+	<br>
+	<label for="password">Password:</label>
+	<input type="password" name="password" placeholder="password"><br>
+	<input class="lgn-btn" type="submit" value="Sign in">
+</form>
+{% endblock %}
