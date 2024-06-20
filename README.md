@@ -1,5 +1,6 @@
 # Fintech Application with Django and DRF APIs
 
+![Dashbaord](images/dashboard.png) ![Send/Receive](images/transfer.png) 
 Welcome to our fintech application repository, built using Django and Django Rest Framework (DRF). This application allows users to transfer and receive money, view transaction records, manage accounts with wallets and tags, and provides a dashboard for user interaction.
 
 ## Overview
