@@ -20,8 +20,6 @@ from django.db.models import Q
 # from django.contrib.auth import get_user_model
 # from rest_framework.decorators import api_view
 from rest_framework.authtoken.serializers import AuthTokenSerializer
-from knox.models import AuthToken
-from knox.views import LoginView as KnoxLoginView 
 # User =  get_user_model
 # from knox.auth import AuthToken
 # ACCOUNT, DASHBOARD, TRANSACTIONRECORD apis
@@ -41,7 +39,7 @@ class RegisterView(generics.GenericAPIView):
 		user = serializer.save()
 		return Response({
 			"user": AccountSerializer(user, context=self.get_serializer_context()).data,
-			"token": AuthToken.objects.create(user)[1]
+			# "token": AuthToken.objects.create(user)[1]
 		})
 
 

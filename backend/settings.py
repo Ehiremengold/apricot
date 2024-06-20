@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'django_filters',
-    'knox',
     'corsheaders',
 ]
 
@@ -59,7 +58,7 @@ MIDDLEWARE = [
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ['knox.auth.TokenAuthentication',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
                                         'rest_framework.authentication.BasicAuthentication',
                                         'rest_framework.authentication.SessionAuthentication',
                                         ],
