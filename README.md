@@ -19,7 +19,7 @@ To get started with this project, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/ehiremengold/fintech-app.git
+   git clone https://github.com/ehiremengold/fintech-prototype-apricot.git
    cd fintech-app
 2. **Set up the environment**:
    - Ensure Python and Django are installed on your machine.
